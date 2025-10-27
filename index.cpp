@@ -56,9 +56,15 @@ UserInput userComunication()
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
-        else if (input.step <= 0) {
-            cout << "[ERROR] Step can't be 0 or less than 0!" << endl;
+        else if (input.step == 0) {
+            cout << "[ERROR] Step can't be 0" << endl;
             cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        else if (input.step < 0)
+        {
+            cout << "[INFO] As step less than 0, second limit should be smaller than first" << endl;
+            stepIsOk = true;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
         else {
@@ -313,3 +319,5 @@ int main()
         }
     }
 }
+
+// changes for git test
